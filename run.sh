@@ -1,7 +1,7 @@
 #!/bin/bash
 
 make
-./tema2
+./main
 
 score=0
 
