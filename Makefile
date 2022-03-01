@@ -1,8 +1,8 @@
 build:
-	gcc -g *.c -o tema2
+	gcc -g *.c -o main
 
 test: build
-	valgrind --leak-check=full ./tema2
+	valgrind --leak-check=full ./main
 
 clean:
-	rm tema2 output*.out
+	rm main output*.out
