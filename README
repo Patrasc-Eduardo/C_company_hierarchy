@@ -1,0 +1,94 @@
+---------------------------------------------------------------- TEMA 2 ---------------------------------------------------------------------------
+
+hire():
+    -In functie de parametrii functiei verificam daca trebuie adaugat radacina sau un nod interior.
+    -Daca trebuie adaugata radacina , alocam spatiu pentru un nod si il returnam
+    -Altfel, cautam managerul (prin functia search()) din echipa caruia va face parte noul nod ,
+    si inseram in echipa alfabetic.
+
+fire():
+    -Verificam daca exista anagajatul de concediat sau daca acesta nu este chir radacina.
+    -Daca angajatul de concediat nu are copii, il elliminam din echipa de anagajati a managerului sau.
+    -Daca angajatul de concediat are copii, il eliminam din echipa de anagajti a managerului sau, preluam anagajtii sai 
+     , ii plasam in vectorul de angajati ai managerului si in final sortam alfabetic noul vector de anagajti.
+
+promote():
+    -Pentru a promova angajatul, il vom concedia cu functia fire() ( care automat se va ocupa si de echipa promovatului, daca are) , iar 
+     apoi il inseram in echipa noului manager cu ajutorul functiei hire().
+
+move_employee():
+    -Acelasi procedeu ca la promote().
+
+move_team():
+    -Dam fire anagajatului pe care vrem sa-l mutam (si echipa lui).
+    -Daca nu are copii , il "angajam" in echipa noului manager prin functia hire().
+    -Daca are copii , "angajam" nodul acestui anagajt in echipa noului manager exact ca in functia hire().
+
+fire_team():
+    -Exact acelasi procedeu din functia fire(): eliminam nodul dorit spre eliminare din vectorul "team" al managerului sau.
+
+get_employees_by_manager():
+    
+    ->getEmployees(): stocheaza subalternii intr-un vector , incrementat treptat prin intermediul primului sau element ( prin numarul de employees).
+    ->numberOfEmpl(): returneaza numarul de subalterni a nodului trimis ca parametru.
+
+    -Functia stocheaza toti subalternii managerului intr-un vector prin functia getEmployees(), sorteaza alfabetic vectorul si afiseaza in final in fisier.
+
+get_employees_by_level():
+
+    ->maxDepth(): returneaza inaltimea maxima a arborelui;
+    ->sortArr(): sorteaza alfabetic un vector;
+
+    -Functia calculeaza inaltimea maxima a arborelui si verifica daca levelul transmis ca parametru al functiei exista.
+    -Daca exista, se creaza un vector in care stocam angajatii si o coada care preia acesti angajati pe nivele.
+    -La final , dupa ce vectorul de angajati contine toti angajatii de pe respectivul nivel , acesta este sortat alfabetic si 
+     are loc afisarea in fisier.
+
+get_best_manager():
+    
+    -Stocam intr-un vector toti angajatii arborelui.
+    -Calculam maximul de employes din elementele vectorului, si pe masura ce gasim un maxim actualizam si vectorul de frecventa.
+    -La final folosim acest vector de frecventa pentru afisarea in ordine in fisier.
+
+reorganize():
+
+    ->addToTeam(): adauga un employee in vectorul "team" all managerului transmis ca parametru.
+    ->fire_team2(): exact ca functia fire_team/fire() doar ca aici se specifica managerul din echipa caruia vrem sa eliminam.
+
+    Intr-o bucla while, pana ajungem la nodul subordonat direct radacinii , realizam urmatorii pasi:
+        
+        -Separam de arbore (ii dam fire prin fire_team2()) nodul vrut .
+        -Alocam un spatiu in plus in echipa sa unde vom pune managerul sau.
+        -Adaugam in echipa managerul sau.
+        -Daca ne aflam la primul pas , actualizam radacina arborelui care va fi respectivul employee transmis ca parametru.
+        -Actualizam nodul la managerul sau.Ne vom deplasa in sens invers prin ierarhie.
+
+     
+     
+       \`-._           __
+        \\  `-..____,.'  `.
+         :`.         /    \`.
+         :  )       :      : \
+          ;'        '   ;  |  :
+          )..      .. .:.`.;  :
+         /::...  .:::...   ` ;
+         ; _ '    __        /:\
+         `:o>   /\o_>      ;:. `.
+        `-`.__ ;   __..--- /:.   \
+        === \_/   ;=====_.':.     ;
+         ,/'`--'...`--....        ;
+              ;                    ;
+            .'                      ;
+          .'                        ;
+        .'     ..     ,      .       ;
+       :       ::..  /      ;::.     |
+      /      `.;::.  |       ;:..    ;
+     :         |:.   :       ;:.    ;
+     :         ::     ;:..   |.    ;
+      :       :;      :::....|     |
+      /\     ,/ \      ;:::::;     ;
+    .:. \:..|    :     ; '.--|     ;
+   ::.  :''  `-.,,;     ;'   ;     ;
+.-'. _.'\      / `;      \,__:      \
+`---'    `----'   ;      /    \,.,,,/
+                   `----`    
